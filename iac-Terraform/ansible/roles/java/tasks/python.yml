@@ -1,0 +1,54 @@
+# ---
+# - name: Install Python3, pip3, and AWS CLI
+#   become: true
+#   apt:
+#     name: "{{ item }}"
+#     state: present
+#   loop:
+#     - python3
+#     - python3-pip
+#     - awscli
+
+# - name: Install boto3 using pip3
+#   become: true
+#   pip:
+#     name: boto3
+#     state: present
+
+
+---
+- name: Instalar dependencias de Python y venv
+  become: true
+  apt:
+    name:
+      - python3
+      - python3-pip
+      - python3-venv
+    state: present
+    update_cache: yes
+
+- name: Crear entorno virtual para utilidades AWS
+  become: true
+  command: python3 -m venv /opt/aws-tools-venv
+  args:
+    creates: /opt/aws-tools-venv
+
+- name: Instalar awscli y boto3 dentro del entorno virtual
+  become: true
+  command: /opt/aws-tools-venv/bin/pip install awscli boto3
+
+- name: Crear symlink para AWS CLI
+  become: true
+  file:
+    src: /opt/aws-tools-venv/bin/aws
+    dest: /usr/local/bin/aws
+    state: link
+
+- name: Crear symlink para boto3 (opcional)
+  become: true
+  file:
+    src: /opt/aws-tools-venv/bin/boto3
+    dest: /usr/local/bin/boto3
+    state: link
+    force: yes
+    # Nota: boto3 normalmente se usa como librería de Python, no como CLI
