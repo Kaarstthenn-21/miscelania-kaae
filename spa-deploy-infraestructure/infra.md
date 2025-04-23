@@ -1,11 +1,37 @@
-¡Perfecto! Aquí tienes el fragmento actualizado del `README.md`, incluyendo el diagrama como una imagen remota con un título apropiado:
 
 ---
 
 ```markdown
 ## 📐 Arquitectura de Despliegue — SPA en AWS
 
+**SPA - Deploy**  
+*Fecha: April 23, 2025*
+
+![SPA Deploy Diagrama](https://images.kaarstthenn.online/SPA%20-%20Deploy%20-%20Pa%CC%81gina%201.png)
+
 Este proyecto implementa una arquitectura **serverless y altamente disponible** para desplegar una SPA (Single Page Application) utilizando servicios gestionados de AWS.
+
+---
+
+### 🔁 Flujo de la arquitectura
+
+```
+Usuarios ─► Cliente Web
+             │
+             ▼
+       [ Amazon Route 53 ]
+             │
+             ▼
+       [ Amazon CloudFront ]
+             │        ▲
+             ▼        │
+        [ Amazon S3 ] │
+                      │
+                      ▼
+           [ AWS ACM ] [ AWS WAF ]
+```
+
+---
 
 ### 🧩 Componentes del sistema
 
@@ -23,35 +49,6 @@ Este proyecto implementa una arquitectura **serverless y altamente disponible** 
 
 5. **AWS Certificate Manager (ACM)**  
    Servicio que emite y administra certificados SSL/TLS usados por CloudFront para ofrecer HTTPS de forma automática y segura.
-
----
-
-### 🔁 Flujo de la arquitectura
-
-```text
-Usuarios ─► Cliente Web
-             │
-             ▼
-       [ Amazon Route 53 ]
-             │
-             ▼
-       [ Amazon CloudFront ]
-             │        ▲
-             ▼        │
-        [ Amazon S3 ] │
-             ▲        │
-             │        ▼
-         [ AWS ACM ] [ AWS WAF ]
-```
-
----
-
-### 🖼️ Diagrama
-
-**SPA - Deploy**  
-*Fecha: April 23, 2025*
-
-![SPA Deploy Diagrama](https://images.kaarstthenn.online/SPA%20-%20Deploy%20-%20Pa%CC%81gina%201.png)
 ```
 
 ---
