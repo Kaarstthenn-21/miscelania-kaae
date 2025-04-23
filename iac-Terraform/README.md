@@ -1,50 +1,51 @@
+# Scalable Java Application on AWS Using Terraform
 
-## Scalable Java Application on AWS Using Terraform
+![java-aws](https://images.kaarstthenn.online/SPA%20-%20Deploy%20-%20Deploy-Java-terraform.png)
 
-![java-aws](https://user-images.githubusercontent.com/106984297/219648306-42c0d544-f6e6-423d-9802-9f3d5eca43e8.png)
+## 📘 Project Documentation & Walkthrough
 
-## Project Documentation & Walkthrough
+Para una guía paso a paso del proyecto, consulta la siguiente documentación:
 
-Refer the following document for the step by step project walkthrough.
+**Documentación del Proyecto:** [Deploy Scalable Java Applications on AWS Using Terraform](https://devopscube.com/deploy-java-applications-aws-autoscaling/)
 
-**Project Documentation:** [Deploy Scalable Java Applications on AWS Using Terraform](https://devopscube.com/deploy-java-applications-aws-autoscaling/)
+## 🐾 Java Application
 
-## Java Application
+Este proyecto utiliza una aplicación Java de código abierto basada en Spring Boot:
 
-For this project you can use the open source pet clinic application (Java Spring Boot)
+➡️ [`spring-projects/spring-petclinic`](https://github.com/spring-projects/spring-petclinic)
 
-```
-https://github.com/spring-projects/spring-petclinic
-```
+## 🛠️ Tools & AWS Services
 
-## Tools/Services 
+### 🔧 DevOps Tools
 
-- DevOps Tools
-  - Jenkins
-  - Packer
-  - Ansible
-  - Terraform
+- Jenkins
+- Packer
+- Ansible
+- Terraform
 
-- AWS Services
-  - Application Load Balancer (L7)
-  - Autoscaling Group
-  - AWS secrets manager
-  - RDS (MySQL)
+### ☁️ AWS Services
 
-## Project Workflow
+- Application Load Balancer (L7)
+- Autoscaling Group
+- AWS Secrets Manager
+- Amazon RDS (MySQL)
 
-- Build Java application
-- Use Packer & Ansible to build the AMI With application code
-    - configure application logging
-    - configure cloudwatch agent with the application log location.
-- Use Teraaform to provision the following 
-    - MySQL RDS instance and store the username and password in AWS secrets manager
-    - Provision Application Load Blancer 
-    - Create a launch template With the Application AMI
-    - Provision Autoscaling Group with Launch tempalate that use AMI built by packer and attach it to Loadbalancer.
-- Verify application by accessing it using Load Balancer endpoint.
-- Verify application logs in Cloudwatch
+## 🔄 Project Workflow
 
-## Other Useful Resources
+1. **Build** la aplicación Java.
+2. Usa **Packer** y **Ansible** para construir una AMI con el código de la aplicación:
+   - Configura el sistema de logs de la aplicación.
+   - Instala y configura el agente de **CloudWatch** para monitoreo de logs.
+3. Utiliza **Terraform** para aprovisionar:
+   - Una instancia **RDS MySQL**, almacenando usuario y contraseña en **AWS Secrets Manager**.
+   - Un **Application Load Balancer (ALB)**.
+   - Un **Launch Template** usando la AMI creada con Packer.
+   - Un **Auto Scaling Group** basado en el Launch Template, asociado al ALB.
+4. Verifica la aplicación accediendo a través del **endpoint del Load Balancer**.
+5. Verifica los **logs en CloudWatch**.
 
-1. [RDS password Rotation With Terraform](https://advancedweb.hu/how-to-set-up-amazon-rds-password-rotation-with-terraform/)
+## 📚 Recursos Útiles
+
+- [RDS Password Rotation with Terraform](https://advancedweb.hu/how-to-set-up-amazon-rds-password-rotation-with-terraform/)
+
+
