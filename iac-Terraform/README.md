@@ -2,12 +2,6 @@
 
 ![java-aws](https://images.kaarstthenn.online/SPA%20-%20Deploy%20-%20Deploy-Java-terraform.png)
 
-## 📘 Project Documentation & Walkthrough
-
-Para una guía paso a paso del proyecto, consulta la siguiente documentación:
-
-**Documentación del Proyecto:** [Deploy Scalable Java Applications on AWS Using Terraform](https://devopscube.com/deploy-java-applications-aws-autoscaling/)
-
 ## 🐾 Java Application
 
 Este proyecto utiliza una aplicación Java de código abierto basada en Spring Boot:
